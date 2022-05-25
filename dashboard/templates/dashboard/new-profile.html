@@ -1,1 +1,98 @@
-{% include 'dashboard/sidebar_template.html' %}
+{% extends 'dashboard/sidebar_template.html' %}
+{% load static %}
+{% block maincontent %}
+{% if errors %}
+<!-- Warning Alert -->
+<div class="alert alert-danger alert-dismissible alert-label-icon label-arrow fade show" role="alert">
+    <i class="ri-alert-line label-icon"></i><strong>Failed to add Info</strong>
+    {% for title,msg in errors.items %}
+    
+    <div class="alert alert-danger alert-dismissible alert-outline fade show" role="alert">
+        <strong> {{title}}</strong> - {{msg.0}}
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+    {% endfor %}
+    
+    <button type="button" class="btn-close" data-bs-dismiss=" alert" aria-label="Close"></button>
+</div>
+{% endif %}
+<form action="" method="POST">
+    {% csrf_token %}
+    <div class="row"> <!-- ROW START  -->
+        <div class="col-lg-12">
+            <div class="card">
+                <div class="card-header align-items-center d-flex">
+                <h4 class="card-title mb-0 flex-grow-1">Profile Information</h4>
+        </div> 
+            <div class="card-body"> <!-- CARD BODY START -->
+                    
+                    <div class="row gy-4"> <!-- SUB ROW START  -->
+                            <div class="col-xxl-3 col-md-6">
+                                <div>
+                                    <label for="email" class="form-label">Mother Email Address</label>
+                                    {{form.email}}
+                                </div>
+                            </div>
+
+                        <div class="col-xxl-3 col-md-6">
+                            <div>
+                                <label for="profile_name" class="form-label">Profile Name</label>
+                                <input type="text" class="form-control" id="profile_name" name="profile_name"value="Profile N">
+                            </div>
+                        </div>
+                        <div class="col-xxl-3 col-md-6">
+                            <div>
+                                <label for="profile_password" class="form-label">PIN</label>
+                                <input type="text" class="form-control" id="profile_password" name="profile_password"value="0000">
+                            </div>
+                        </div>
+
+                        <div class="col-xxl-3 col-md-6">
+                            <label for="profile_bought_for" class="form-label">Bought For</label><br>
+                            <select class="form-select mb3" aria-label=".form-select-lg example">
+                                <option value="30">30 Days</option>
+                                <option value="38">38 Days</option>
+                            </select>
+                        </div>
+                        <div class="col-xxl-3 col-md-6">
+                            <label for="account_tl_count" class="form-label">Profile Type</label><br>
+                            <select class="form-select mb3" aria-label=".form-select-lg example">
+                                <option value="NonVPN">Non VPN</option>
+                                <option value="VPN">VPN</option>
+                            </select>
+                        </div>
+                        <div class="col-xxl-3 col-md-6">
+                            <div class="col-xxl-3 col-md-6">
+                                <label for="owner" class="form-label">Owner</label><br>
+                                {{form.owner}}
+                            </div>
+                        </div>
+                    </div><!-- SUB ROW END  -->
+                    <br> <br>
+                    <div class="row gy-4"> <!-- SUB ROW START  -->
+                            <div class="col-xxl-3 col-md-6">
+                                <label for="account_started" class="form-label mb-0">Account Start Date <br></label>
+                    
+                                        <input type="text" class="form-control" data-provider="flatpickr"
+                                            data-date-format="Y-m-d" data-deafult-date="25 01,2021"
+                                            data-inline-date="true" name="account_started">
+                            </div>
+                            <div class="col-xxl-3 col-md-6">
+                                <label for="account_ended" class="form-label mb-0">Account End Date <br></label>
+                    
+                                        <input type="text" class="form-control" data-provider="flatpickr"
+                                            data-date-format="Y-m-d" data-deafult-date="25 01,2021"
+                                            data-inline-date="true" name="account_ended">
+                            </div><br>
+
+
+                        </div><!-- SUB ROW END  -->
+                        <br>
+                        <button type="submit" class="btn btn-primary" id="sa-successs">Submit</button>  
+                        {% comment %} <button type="button" class="btn btn-primary btn-sm" id="sa-success">Click me</button> {% endcomment %}
+    
+            </div> <!-- CARD BODY END -->
+        </div> <!-- ROW END  -->
+</form> 
+{% endblock maincontent %}
+

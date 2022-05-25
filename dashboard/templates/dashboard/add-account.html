@@ -2,7 +2,21 @@
 {% load static %}
 
 {% block maincontent %}
-<p>sldkfjalsdf</p>
+{% if errors %}
+<!-- Warning Alert -->
+<div class="alert alert-danger alert-dismissible alert-label-icon label-arrow fade show" role="alert">
+    <i class="ri-alert-line label-icon"></i><strong>Failed to add Info</strong>
+    {% for title,msg in errors.items %}
+    
+    <div class="alert alert-danger alert-dismissible alert-outline fade show" role="alert">
+        <strong> {{title}}</strong> - {{msg.0}}
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+    {% endfor %}
+    
+    <button type="button" class="btn-close" data-bs-dismiss=" alert" aria-label="Close"></button>
+</div>
+{% endif %}
 {% comment %} 
 <form action="" method="POST">
     {% csrf_token %}
@@ -21,7 +35,6 @@
     
     <input type="submit" value="OK">
 </form> {% endcomment %}
-
 
 
 
@@ -82,10 +95,11 @@
 
                         </div><!-- SUB ROW END  -->
                         <br>
-                        <button type="submit" class="btn btn-primary">Submit</button>  
+                        <button type="submit" class="btn btn-primary" id="sa-successs">Submit</button>  
+                        {% comment %} <button type="button" class="btn btn-primary btn-sm" id="sa-success">Click me</button> {% endcomment %}
     
             </div> <!-- CARD BODY END -->
         </div> <!-- ROW END  -->
 </form> 
-
+<script type="text/javascript">document.getElementById("sa-success").addEventListener("click",function(){Swal.fire({title:"Good job!",text:"You clicked the button!",icon:"success",showCancelButton:!0,confirmButtonClass:"btn btn-primary w-xs me-2 mt-2",cancelButtonClass:"btn btn-danger w-xs mt-2",buttonsStyling:!1,showCloseButton:!0})})</script>
 {% endblock maincontent %}
