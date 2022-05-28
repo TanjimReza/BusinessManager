@@ -1,0 +1,39 @@
+{% extends 'dashboard/sidebar_template.html' %}
+{% load static %}
+
+
+{% block maincontent %}
+
+<div class="card">
+    <div class="card-header">
+        <h4 class="card-title mb-0">Profile Information</h4>
+    </div><!-- end card header -->
+
+    <div class="card-body">
+        <div class="snow-editor" style="height:auto;">
+                    <p>আসসালামু আলাইকুম, </p>
+                    <p>Your order Netflix Renewable has been delivered to you.                                           </p>
+                    <br>
+                    <p>Email: {{email}}</p>
+                    <p>Pass:  {{password}}</p>
+                    <p>Profile Name: {{name}}    </p>
+                    <p>Paid: 250 BDT</p>
+                    <p>Started: {{started}}</p>
+                    <p>Paid Until: {{ends}}</p>                          
+                    <br>
+                    <p>যেই কাজ গুলো করা যাবে না / কিছু জরুরি বিষয় মনে রাখবেন:                        </p>
+                    <p>⚠️ মেইন একাউন্টের পাসওয়ার্ড কখনোই পরিবর্তন করবেন না। (But You Can Set Your Own Screens Pin)                        </p>
+                    <p>⚠️ পাসওয়ার্ড কখনো কাউকে শেয়ার করবেন না।                        </p>
+                    <p>⚠️ কখনো লগ-আউট করবেন না।                        </p>
+                    <p>⚠️ ১ টা প্রোফাইল কখনো ২টা ডিভাইসে লগিন/ স্ট্রিমিং  একসাথে করবেন না।                        </p>
+                    <p>⚠️ Logout করে Login করে নিবেন। সমস্যা হলে Netflix App Uninstall করে আবার Install করে নিবেন।</p>
+                    <br>           
+                    <p>কোনো সমস্যা হলে, ফেসবুকে না পেলে দয়া করে নিচের নাম্বারে WhatsApp-এ মেসেজ দিবেন। ইন-শা-আল্লাহ্‌ যতদ্রুত সম্ভব সমাধান করে দেওয়ার চেষ্টা করবো।
+                    WhatsApp: +8801642579258</p>
+
+
+
+        </div> <!-- end Snow-editor-->
+    </div><!-- end card-body -->
+</div><!-- end card -->
+{% endblock %}

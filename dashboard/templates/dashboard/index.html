@@ -1,1 +1,92 @@
-{% include 'dashboard/sidebar_template.html' %}
+{% extends 'dashboard/sidebar_template.html' %}
+{% load static %}
+
+
+{% block maincontent %}
+<form action="" method="POST">
+    {% csrf_token %}
+    <div class="row">
+        <!-- ROW START  -->
+        <div class="col-lg-12">
+            <div class="card">
+                <div class="card-header align-items-center d-flex">
+                    <h4 class="card-title mb-0 flex-grow-1">Dashboard</h4>
+                </div>
+                <div class="card-body">
+                    <!-- CARD BODY START -->
+
+                    <div class="row gy-4">
+                        <!-- SUB ROW START  -->
+                        <div class="col-xxl-6 col-md-6">
+                            <div>
+                                <label for="email" class="form-label">Profile Status</label>
+                                <div class="profiles">
+                                    <!-- Striped Rows -->
+                                    <table class="table table-striped">
+                                        <thead>
+                                            <tr>
+                                                <th scope="col">Profile Name</th>
+                                                <th scope="col">Customer Name</th>
+                                                <th scope="col">Ends</th>
+                                                <th scope="col">Account</th>
+                                                <th scope="col">Action</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+
+                                            {% for profile,account,ends,stats in profile_names %}
+                                            <tr>
+                                                <th scope="row">{{profile}}</th>
+                                                <td>{{account}}</td>
+                                                <td>{{ends}}</td>
+                                                <td>$2,410</td>
+                                                <td><span class="{{stats}}">Confirmed</span></td>
+                                            </tr>
+                                            
+                                            {% endfor %}
+                
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row gy-4">
+                            <div class="col-xxl-6 col-md-6">
+                                <div>
+                                    <label for="email" class="form-label">Account Status</label>
+                                    <div class="profiles">
+                                        <!-- Striped Rows -->
+                                        <table class="table table-striped">
+                                            <thead>
+                                                <tr>
+                                                    <th scope="col">Account Email</th>
+                                                    <th scope="col">Account Started</th>
+                                                    <th scope="col">Accoumt Ends</th>
+                       
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+
+                                                {% for email,start,end in accounts %}
+                                                <tr>
+                                                    <th scope="row">{{email}}</th>
+                                                    <td>{{start}}</td>
+                                                    <td>{{end}}</td>
+                                                </tr>
+                                                
+                                                {% endfor %}
+                    
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+
+                    </div><!-- SUB ROW END  -->
+
+                </div><br>
+            </div><!-- SUB ROW END  -->
+        </div> <!-- CARD BODY END -->
+    </div> <!-- ROW END  -->
+</form>
+{% endblock %}

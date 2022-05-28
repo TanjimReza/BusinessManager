@@ -1,4 +1,11 @@
-errors = {'account_email': ['Account with this Account email already exists.']}
+context = {
+    'profile_names':[(1,2,3)],
+}
 
-for i,j in errors.items():
-    print(i,j[0])
+a = 4
+b = 5
+c = 6
+
+context['profile_names'].append((a,b,c))
+
+print(context)

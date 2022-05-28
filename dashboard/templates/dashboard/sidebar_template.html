@@ -12,11 +12,12 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
     <!-- App favicon -->
     <link rel="shortcut icon" href="{% static 'assets/images/favicon.ico' %}">
-<!-- Sweet Alert css-->
-<link href="{% static 'assets/libs/sweetalert2/sweetalert2.min.css' %}" rel="stylesheet" type="text/css" />
+    <!-- Sweet Alert css-->
+    <link href="{% static 'assets/libs/sweetalert2/sweetalert2.min.css' %}" rel="stylesheet" type="text/css" />
     <!-- jsvectormap css -->
     <link href="{% static 'assets/libs/jsvectormap/css/jsvectormap.min.css' %}" rel="stylesheet" type="text/css" />
 
+    <link href="{% static 'assets/libs/quill/quill.snow.css" rel="stylesheet' %}" type="text/css" />
     <!--Swiper slider css-->
     <link href="{% static 'assets/libs/swiper/swiper-bundle.min.css' %}" rel="stylesheet" type="text/css" />
 
@@ -45,7 +46,7 @@
             <div class="d-flex">
                 <!-- LOGO -->
                 <div class="navbar-brand-box horizontal-logo">
-                    <a href="index.html" class="logo logo-dark">
+                    <a href="{% url 'dashboard'%}" class="logo logo-dark">
                         <span class="logo-sm">
                             <img src="{% static 'assets/images/logo-sm.png' %}" alt="" height="22">
                         </span>
@@ -54,7 +55,7 @@
                         </span>
                     </a>
 
-                    <a href="index.html" class="logo logo-light">
+                    <a href="{% url 'dashboard'%}" class="logo logo-light">
                         <span class="logo-sm">
                             <img src="{% static 'assets/images/logo-sm.png' %}" alt="" height="22">
                         </span>
@@ -1679,6 +1680,14 @@
     <!-- prismjs plugin -->
     <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
     <script src="{% static 'assets/libs/prismjs/prism.js' %}"></script>
+    <!-- ckeditor -->
+    <script src="{% static 'assets/libs/@ckeditor/ckeditor5-build-classic/build/ckeditor.js' %}"></script>
+
+    <!-- quill js -->
+
+
+    <!-- init js -->
+    <script src="{% static 'assets/js/pages/form-editor.init.js' %}"></script>
 </body>
 
 </html>
