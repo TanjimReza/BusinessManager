@@ -1,6 +1,29 @@
 {% extends 'dashboard/sidebar_template.html' %}
 {% load static %}
 {% block maincontent %}
+
+{% if success %}
+<!-- Success Alert -->
+<div class="alert alert-success alert-dismissible alert-additional fade show" role="alert">
+    <div class="alert-body">
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        <div class="d-flex">
+            <div class="flex-shrink-0 me-3">
+                <i class="ri-notification-off-line fs-16 align-middle"></i>
+            </div>
+            <div class="flex-grow-1">
+                <h5 class="alert-heading">Yey! Everything worked!</h5>
+                <p class="mb-0">This alert needs your attention, but it's not super important. </p>
+            </div>
+        </div>
+    </div>
+    <div class="alert-content">
+        <p class="mb-0">Whenever you need to, be sure to use margin utilities to keep things nice and tidy.</p>
+    </div>
+</div>
+{% endif %}
+
+
 {% if errors %}
 <!-- Warning Alert -->
 <div class="alert alert-danger alert-dismissible alert-label-icon label-arrow fade show" role="alert">
@@ -49,14 +72,14 @@
 
                         <div class="col-xxl-3 col-md-6">
                             <label for="profile_bought_for" class="form-label">Bought For</label><br>
-                            <select class="form-select mb3" aria-label=".form-select-lg example">
+                            <select class="form-select mb3" aria-label=".form-select-lg example" name="profile_bought_for">
                                 <option value="30">30 Days</option>
                                 <option value="38">38 Days</option>
                             </select>
                         </div>
                         <div class="col-xxl-3 col-md-6">
-                            <label for="account_tl_count" class="form-label">Profile Type</label><br>
-                            <select class="form-select mb3" aria-label=".form-select-lg example">
+                            <label for="profile_type" class="form-label">Profile Type</label><br>
+                            <select class="form-select mb3" aria-label=".form-select-lg example" name ="profile_type">
                                 <option value="NonVPN">Non VPN</option>
                                 <option value="VPN">VPN</option>
                             </select>
@@ -74,14 +97,14 @@
                                 <label for="account_started" class="form-label mb-0">Account Start Date <br></label>
                     
                                         <input type="text" class="form-control" data-provider="flatpickr"
-                                            data-date-format="Y-m-d" data-deafult-date="25 01,2021"
+                                            data-date-format="Y-m-d" data-deafult-date="today" 
                                             data-inline-date="true" name="account_started">
                             </div>
                             <div class="col-xxl-3 col-md-6">
                                 <label for="account_ended" class="form-label mb-0">Account End Date <br></label>
                     
                                         <input type="text" class="form-control" data-provider="flatpickr"
-                                            data-date-format="Y-m-d" data-deafult-date="25 01,2021"
+                                            data-date-format="Y-m-d" data-deafult-date="today" 
                                             data-inline-date="true" name="account_ended">
                             </div><br>
 

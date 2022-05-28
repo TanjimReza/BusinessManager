@@ -1,1 +1,169 @@
-{% include 'dashboard/sidebar_template.html' %}
+{% extends 'dashboard/sidebar_template.html' %}
+{% load static %}
+{% block maincontent %}
+<div class="success">
+
+    {% if success %}
+    <!-- Success Alert -->
+    <div class="alert alert-success alert-dismissible alert-additional fade show" role="alert">
+        <div class="alert-body">
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            <div class="d-flex">
+                <div class="flex-shrink-0 me-3">
+                    <i class="ri-notification-off-line fs-16 align-middle"></i>
+                </div>
+                <div class="flex-grow-1">
+                    <h5 class="alert-heading">Yey! Everything worked!</h5>
+                    <p class="mb-0">This alert needs your attention, but it's not super important. </p>
+                </div>
+            </div>
+        </div>
+        <div class="alert-content">
+            <p class="mb-0">Whenever you need to, be sure to use margin utilities to keep things nice and tidy.</p>
+        </div>
+    </div>
+    {% endif %}
+</div>
+<div class="errors">
+
+    {% if errors %}
+    <!-- Warning Alert -->
+    <div class="alert alert-danger alert-dismissible alert-label-icon label-arrow fade show" role="alert">
+        <i class="ri-alert-line label-icon"></i><strong>Failed to add Info</strong>
+        {% for title,msg in errors.items %}
+        
+        <div class="alert alert-danger alert-dismissible alert-outline fade show" role="alert">
+            <strong> {{title}}</strong> - {{msg.0}}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+        {% endfor %}
+        
+        <button type="button" class="btn-close" data-bs-dismiss=" alert" aria-label="Close"></button>
+    </div>
+    {% endif %}
+</div>
+
+
+<h1>GET PROFILE</h1>
+{% if get_profile %}
+{% if get_profile %}
+
+<form action="" method="POST">
+    {% csrf_token %}
+    <div class="row"> <!-- ROW START  -->
+        <div class="col-lg-12">
+            <div class="card">
+                <div class="card-header align-items-center d-flex">
+                    <h4 class="card-title mb-0 flex-grow-1">Profile Information</h4>
+                </div> 
+                <div class="card-body"> <!-- CARD BODY START -->
+                    
+                    <div class="row gy-4"> <!-- SUB ROW START  -->
+                        <div class="col-xxl-3 col-md-6">
+                            <div>
+                                <label for="profile_name" class="form-label" name="profile_name">Profile Name</label>
+                                {{form}}
+                            </div>
+                        </div>
+                        
+                        
+                    </div><!-- SUB ROW END  -->
+                    
+                    <br>
+                    <button type="submit" class="btn btn-primary" id="sa-successs">Submit</button>  
+                    {% comment %} <button type="button" class="btn btn-primary btn-sm" id="sa-success">Click me</button> {% endcomment %}
+                    
+                </div> <!-- CARD BODY END -->
+            </div> <!-- ROW END  -->
+        </form> 
+        
+{% endif %}
+{% endif %}
+
+{% if update %}
+
+
+<form action="" method="POST">
+    {% csrf_token %}
+    <div class="row"> <!-- ROW START  -->
+        <div class="col-lg-12">
+            <div class="card">
+                <div class="card-header align-items-center d-flex">
+                <h4 class="card-title mb-0 flex-grow-1">Profile Information</h4>
+        </div> 
+            <div class="card-body"> <!-- CARD BODY START -->
+                    
+                    <div class="row gy-4"> <!-- SUB ROW START  -->
+                            <div class="col-xxl-3 col-md-6">
+                                <div>
+                                    <label for="email" class="form-label">Mother Email Address</label>
+                                    <input type="text" class="form-control" id="email" name="email" value="{{form2.email.value}}">
+                                </div>
+                            </div>
+
+                        <div class="col-xxl-3 col-md-6">
+                            <div>
+                                <label for="profile_name" class="form-label">Profile Name</label>
+                                <input type="text" class="form-control" id="profile_name" name="profile_name" value="{{form2.profile_name.value}}">
+                            </div>
+                        </div>
+                        <div class="col-xxl-3 col-md-6">
+                            <div>
+                                <label for="profile_password" class="form-label">PIN</label>
+                                <input type="text" class="form-control" id="profile_password" name="profile_password" value="{{form2.profile_password.value}}">
+                            </div>
+                        </div>
+
+                        <div class="col-xxl-3 col-md-6">
+                            <label for="profile_bought_for" class="form-label">Bought For</label><br>
+                            {% comment %} <input type="text" class="form-control" id="profile_bought_for" name="profile_bought_for" value="{{form2.profile_bought_for.value}}"> {% endcomment %}
+                           <select class="form-select mb3" aria-label=".form-select-lg example" name="profile_bought_for">
+                                <option value="{{form2.profile_bought_for.value}}" selected>{{form2.profile_bought_for.value}}</option>
+                                <option value="30">30 Days</option>
+                                <option value="38">38 Days</option>
+                            </select> 
+                        </div>
+                        <div class="col-xxl-3 col-md-6">
+                             <label for="profile_type" class="form-label">Profile Type</label><br>
+                            <select class="form-select mb3" aria-label=".form-select-lg example" name ="profile_type" value = "{{form2.profile_type.value}}">
+                                <option value="NonVPN">Non VPN</option>
+                                <option value="VPN">VPN</option>
+                            </select>
+                        </div>
+                        <div class="col-xxl-3 col-md-6">
+                            <div class="col-xxl-3 col-md-6">
+                                <label for="owner" class="form-label">Owner</label><br>
+                                {{form2.owner}}
+                            </div>
+                        </div>
+                    </div><!-- SUB ROW END  -->
+                    <br> <br>
+                    <div class="row gy-4"> <!-- SUB ROW START  -->
+                            <div class="col-xxl-3 col-md-6">
+                                <label for="account_started" class="form-label mb-0">Account Start Date <br></label>
+                    
+                                        <input type="text" class="form-control" data-provider="flatpickr"
+                                            data-date-format="Y-m-d" data-deafult-date="today" 
+                                            data-inline-date="true" name="account_started">
+                            </div>
+                            <div class="col-xxl-3 col-md-6">
+                                <label for="account_ended" class="form-label mb-0">Account End Date <br></label>
+                    
+                                        <input type="text" class="form-control" data-provider="flatpickr"
+                                            data-date-format="Y-m-d" data-deafult-date="today" 
+                                            data-inline-date="true" name="account_ended">
+                            </div><br>
+
+
+                        </div><!-- SUB ROW END  -->
+                        <br>
+                        <button type="submit" class="btn btn-primary" id="sa-successs">Submit</button>  
+                        {% comment %} <button type="button" class="btn btn-primary btn-sm" id="sa-success">Click me</button> {% endcomment %}
+    
+            </div> <!-- CARD BODY END -->
+        </div> <!-- ROW END  -->
+</form>     
+{% endif %}
+{% endblock maincontent %}
+        
+        

@@ -1,14 +1,16 @@
 from django.db import models
 # Create your models here.
 from datetime import datetime, timedelta
+
 class Profile(models.Model):
+    id = models.AutoField(primary_key=True)
     email = models.ForeignKey("Account", on_delete=models.SET_NULL, null=True)
-    name = models.CharField(name="profile_name", max_length=100, primary_key=True)
+    name = models.CharField(name="profile_name", max_length=100)
     password = models.CharField(name="profile_password", max_length=100)
     credit = models.IntegerField(name="profile_credit", default=0)
     created_at = models.DateField(name="profile_created", auto_now_add=True)
     ends_at = models.DateField(name="profile_ends", auto_now_add=True)
-    bought_for = models.IntegerField(name="profile_bought_for")
+    bought_for = models.CharField(name="profile_bought_for",max_length=10)
     owner = models.ForeignKey("Customer", on_delete=models.SET_NULL, null=True)
     profile_type = models.CharField(name="profile_type", max_length=100, default="NonVPN")
     def __str__(self):
@@ -34,11 +36,17 @@ class Account(models.Model):
 
 
 class Customer(models.Model):
-    name = models.CharField(name="customer_name", max_length=100, primary_key=True)
-    customer_profiles = models.ForeignKey(Profile, name="customer_profiles", on_delete=models.SET_NULL,null=True)
+    cid = models.AutoField(primary_key=True)
+    name = models.CharField(name="customer_name", max_length=100)
+    customer_profiles = models.ManyToOneRel(field="profile",field_name="profiles", to="Profile", on_delete=models.DO_NOTHING)
     
     def __str__(self) -> str:
         return str(self.customer_name)
     
     class Meta:
         db_table = 'customer'
+        constraints = [ models.UniqueConstraint(fields=['customer_name','cid'], name='customer_name_unique') ]
+
+class Profiles(models.Model):
+    profile = models.OneToOneField("Profile", on_delete=models.CASCADE, primary_key=True)
+    

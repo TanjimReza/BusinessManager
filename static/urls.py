@@ -2,6 +2,8 @@
 from django.contrib import admin
 from django.urls import path
 from . import views 
+from django.conf import settings
+from django.conf.urls.static import static
 urlpatterns = [
     path('', views.dashboard, name='dashboard'),
     path('index/', views.dashboard, name='dashboard'),
@@ -19,7 +21,7 @@ urlpatterns = [
     #! Netflix-Sell URLs
     path('newprofile',views.newprofile, name='newprofile'),
     path('renewprofile',views.renewprofile, name='renewprofile'),
-    
+    path('renewprofile/<str:id>/',views.renewprofile2, name='renewprofile2'),
     #! Finance URLs
     path('addcost',views.addcost, name='addcost'),
     path('addprofit',views.addprofit, name='addprofit'),
@@ -28,10 +30,7 @@ urlpatterns = [
     #! DEMO URLs
     path('demo',views.demo, name='demo'),
     path('demo2',views.demo2, name='demo2'),
+  
     
     
-    
-    
-    
-    
-]
+]+ static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
