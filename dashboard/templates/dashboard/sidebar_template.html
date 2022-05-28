@@ -1,33 +1,35 @@
+{% load static %}
+
 <!doctype html>
 <html lang="en" data-layout="vertical" data-topbar="light" data-sidebar="dark" data-sidebar-size="lg">
 
 <head>
-
     <meta charset="utf-8" />
     <title>Dashboard | Velzon - Admin & Dashboard Template</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta content="Premium Multipurpose Admin & Dashboard Template" name="description" />
     <meta content="Themesbrand" name="author" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
     <!-- App favicon -->
-    <link rel="shortcut icon" href="static/assets/images/favicon.ico">
+    <link rel="shortcut icon" href="{% static 'assets/images/favicon.ico' %}">
 <!-- Sweet Alert css-->
-<link href="static/assets/libs/sweetalert2/sweetalert2.min.css" rel="stylesheet" type="text/css" />
+<link href="{% static 'assets/libs/sweetalert2/sweetalert2.min.css' %}" rel="stylesheet" type="text/css" />
     <!-- jsvectormap css -->
-    <link href="static/assets/libs/jsvectormap/css/jsvectormap.min.css" rel="stylesheet" type="text/css" />
+    <link href="{% static 'assets/libs/jsvectormap/css/jsvectormap.min.css' %}" rel="stylesheet" type="text/css" />
 
     <!--Swiper slider css-->
-    <link href="static/assets/libs/swiper/swiper-bundle.min.css" rel="stylesheet" type="text/css" />
+    <link href="{% static 'assets/libs/swiper/swiper-bundle.min.css' %}" rel="stylesheet" type="text/css" />
 
     <!-- Layout config Js -->
-    <script src="static/assets/js/layout.js"></script>
+    <script src="{% static 'assets/js/layout.js' %}"></script>
     <!-- Bootstrap Css -->
-    <link href="static/assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="{% static 'assets/css/bootstrap.min.css' %}" rel="stylesheet" type="text/css" />
     <!-- Icons Css -->
-    <link href="static/assets/css/icons.min.css" rel="stylesheet" type="text/css" />
+    <link href="{% static 'assets/css/icons.min.css' %}" rel="stylesheet" type="text/css" />
     <!-- App Css-->
-    <link href="static/assets/css/app.min.css" rel="stylesheet" type="text/css" />
+    <link href="{% static 'assets/css/app.min.css' %}" rel="stylesheet" type="text/css" />
     <!-- custom Css-->
-    <link href="static/assets/css/custom.min.css" rel="stylesheet" type="text/css" />
+    <link href="{% static 'assets/css/custom.min.css' %}" rel="stylesheet" type="text/css" />
 
 
 </head>
@@ -45,19 +47,19 @@
                 <div class="navbar-brand-box horizontal-logo">
                     <a href="index.html" class="logo logo-dark">
                         <span class="logo-sm">
-                            <img src="static/assets/images/logo-sm.png" alt="" height="22">
+                            <img src="{% static 'assets/images/logo-sm.png' %}" alt="" height="22">
                         </span>
                         <span class="logo-lg">
-                            <img src="static/assets/images/logo-dark.png" alt="" height="17">
+                            <img src="{% static 'assets/images/logo-dark.png' %}" alt="" height="17">
                         </span>
                     </a>
 
                     <a href="index.html" class="logo logo-light">
                         <span class="logo-sm">
-                            <img src="static/assets/images/logo-sm.png" alt="" height="22">
+                            <img src="{% static 'assets/images/logo-sm.png' %}" alt="" height="22">
                         </span>
                         <span class="logo-lg">
-                            <img src="static/assets/images/logo-light.png" alt="" height="17">
+                            <img src="{% static 'assets/images/logo-light.png' %}" alt="" height="17">
                         </span>
                     </a>
                 </div>
@@ -125,7 +127,7 @@
                                 <!-- item -->
                                 <a href="javascript:void(0);" class="dropdown-item notify-item py-2">
                                     <div class="d-flex">
-                                        <img src="static/assets/images/users/avatar-2.jpg"
+                                        <img src="{% static 'assets/images/users/avatar-2.jpg' %}"
                                             class="me-3 rounded-circle avatar-xs" alt="user-pic">
                                         <div class="flex-1">
                                             <h6 class="m-0">Angela Bernier</h6>
@@ -136,7 +138,7 @@
                                 <!-- item -->
                                 <a href="javascript:void(0);" class="dropdown-item notify-item py-2">
                                     <div class="d-flex">
-                                        <img src="static/assets/images/users/avatar-3.jpg"
+                                        <img src="{% static 'assets/images/users/avatar-3.jpg' %}"
                                             class="me-3 rounded-circle avatar-xs" alt="user-pic">
                                         <div class="flex-1">
                                             <h6 class="m-0">David Grasso</h6>
@@ -147,7 +149,7 @@
                                 <!-- item -->
                                 <a href="javascript:void(0);" class="dropdown-item notify-item py-2">
                                     <div class="d-flex">
-                                        <img src="static/assets/images/users/avatar-5.jpg"
+                                        <img src="{% static 'assets/images/users/avatar-5.jpg' %}"
                                             class="me-3 rounded-circle avatar-xs" alt="user-pic">
                                         <div class="flex-1">
                                             <h6 class="m-0">Mike Bunch</h6>
@@ -192,7 +194,7 @@
                 <div class="dropdown ms-1 topbar-head-dropdown header-item">
                     <button type="button" class="btn btn-icon btn-topbar btn-ghost-secondary rounded-circle"
                         data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <img id="header-lang-img" src="static/assets/images/flags/us.svg" alt="Header Language" height="20"
+                        <img id="header-lang-img" src="{% static 'assets/images/flags/us.svg' %}" alt="Header Language" height="20"
                             class="rounded">
                     </button>
                     <div class="dropdown-menu dropdown-menu-end">
@@ -200,49 +202,49 @@
                         <!-- item-->
                         <a href="javascript:void(0);" class="dropdown-item notify-item language py-2" data-lang="en"
                             title="English">
-                            <img src="static/assets/images/flags/us.svg" alt="user-image" class="me-2 rounded" height="18">
+                            <img src="{% static 'assets/images/flags/us.svg' %}" alt="user-image" class="me-2 rounded" height="18">
                             <span class="align-middle">English</span>
                         </a>
 
                         <!-- item-->
                         <a href="javascript:void(0);" class="dropdown-item notify-item language" data-lang="sp"
                             title="Spanish">
-                            <img src="static/assets/images/flags/spain.svg" alt="user-image" class="me-2 rounded" height="18">
+                            <img src="{% static 'assets/images/flags/spain.svg' %}" alt="user-image" class="me-2 rounded" height="18">
                             <span class="align-middle">Española</span>
                         </a>
 
                         <!-- item-->
                         <a href="javascript:void(0);" class="dropdown-item notify-item language" data-lang="gr"
                             title="German">
-                            <img src="static/assets/images/flags/germany.svg" alt="user-image" class="me-2 rounded"
+                            <img src="{% static 'assets/images/flags/germany.svg' %}" alt="user-image" class="me-2 rounded"
                                 height="18"> <span class="align-middle">Deutsche</span>
                         </a>
 
                         <!-- item-->
                         <a href="javascript:void(0);" class="dropdown-item notify-item language" data-lang="it"
                             title="Italian">
-                            <img src="static/assets/images/flags/italy.svg" alt="user-image" class="me-2 rounded" height="18">
+                            <img src="{% static 'assets/images/flags/italy.svg' %}" alt="user-image" class="me-2 rounded" height="18">
                             <span class="align-middle">Italiana</span>
                         </a>
 
                         <!-- item-->
                         <a href="javascript:void(0);" class="dropdown-item notify-item language" data-lang="ru"
                             title="Russian">
-                            <img src="static/assets/images/flags/russia.svg" alt="user-image" class="me-2 rounded" height="18">
+                            <img src="{% static 'assets/images/flags/russia.svg' %}" alt="user-image" class="me-2 rounded" height="18">
                             <span class="align-middle">русский</span>
                         </a>
 
                         <!-- item-->
                         <a href="javascript:void(0);" class="dropdown-item notify-item language" data-lang="ch"
                             title="Chinese">
-                            <img src="static/assets/images/flags/china.svg" alt="user-image" class="me-2 rounded" height="18">
+                            <img src="{% static 'assets/images/flags/china.svg' %}" alt="user-image" class="me-2 rounded" height="18">
                             <span class="align-middle">中国人</span>
                         </a>
 
                         <!-- item-->
                         <a href="javascript:void(0);" class="dropdown-item notify-item language" data-lang="fr"
                             title="French">
-                            <img src="static/assets/images/flags/french.svg" alt="user-image" class="me-2 rounded" height="18">
+                            <img src="{% static 'assets/images/flags/french.svg' %}" alt="user-image" class="me-2 rounded" height="18">
                             <span class="align-middle">français</span>
                         </a>
                     </div>
@@ -270,19 +272,19 @@
                             <div class="row g-0">
                                 <div class="col">
                                     <a class="dropdown-icon-item" href="#!">
-                                        <img src="static/assets/images/brands/github.png" alt="Github">
+                                        <img src="{% static 'assets/images/brands/github.png' %}" alt="Github">
                                         <span>GitHub</span>
                                     </a>
                                 </div>
                                 <div class="col">
                                     <a class="dropdown-icon-item" href="#!">
-                                        <img src="static/assets/images/brands/bitbucket.png" alt="bitbucket">
+                                        <img src="{% static 'assets/images/brands/bitbucket.png' %}" alt="bitbucket">
                                         <span>Bitbucket</span>
                                     </a>
                                 </div>
                                 <div class="col">
                                     <a class="dropdown-icon-item" href="#!">
-                                        <img src="static/assets/images/brands/dribbble.png" alt="dribbble">
+                                        <img src="{% static 'assets/images/brands/dribbble.png' %}" alt="dribbble">
                                         <span>Dribbble</span>
                                     </a>
                                 </div>
@@ -291,19 +293,19 @@
                             <div class="row g-0">
                                 <div class="col">
                                     <a class="dropdown-icon-item" href="#!">
-                                        <img src="static/assets/images/brands/dropbox.png" alt="dropbox">
+                                        <img src="{% static 'assets/images/brands/dropbox.png' %}" alt="dropbox">
                                         <span>Dropbox</span>
                                     </a>
                                 </div>
                                 <div class="col">
                                     <a class="dropdown-icon-item" href="#!">
-                                        <img src="static/assets/images/brands/mail_chimp.png" alt="mail_chimp">
+                                        <img src="{% static 'assets/images/brands/mail_chimp.png' %}" alt="mail_chimp">
                                         <span>Mail Chimp</span>
                                     </a>
                                 </div>
                                 <div class="col">
                                     <a class="dropdown-icon-item" href="#!">
-                                        <img src="static/assets/images/brands/slack.png" alt="slack">
+                                        <img src="{% static 'assets/images/brands/slack.png' %}" alt="slack">
                                         <span>Slack</span>
                                     </a>
                                 </div>
@@ -346,7 +348,7 @@
                                 </div>
                                 <div class="d-block dropdown-item dropdown-item-cart text-wrap px-3 py-2">
                                     <div class="d-flex align-items-center">
-                                        <img src="static/assets/images/products/img-1.png"
+                                        <img src="{% static 'assets/images/products/img-1.png' %}"
                                             class="me-3 rounded-circle avatar-sm p-2 bg-light" alt="user-pic">
                                         <div class="flex-1">
                                             <h6 class="mt-0 mb-1 fs-14">
@@ -370,7 +372,7 @@
 
                                 <div class="d-block dropdown-item dropdown-item-cart text-wrap px-3 py-2">
                                     <div class="d-flex align-items-center">
-                                        <img src="static/assets/images/products/img-2.png"
+                                        <img src="{% static 'assets/images/products/img-2.png' %}"
                                             class="me-3 rounded-circle avatar-sm p-2 bg-light" alt="user-pic">
                                         <div class="flex-1">
                                             <h6 class="mt-0 mb-1 fs-14">
@@ -394,7 +396,7 @@
 
                                 <div class="d-block dropdown-item dropdown-item-cart text-wrap px-3 py-2">
                                     <div class="d-flex align-items-center">
-                                        <img src="static/assets/images/products/img-3.png"
+                                        <img src="{% static 'assets/images/products/img-3.png' %}"
                                             class="me-3 rounded-circle avatar-sm p-2 bg-light" alt="user-pic">
                                         <div class="flex-1">
                                             <h6 class="mt-0 mb-1 fs-14">
@@ -418,7 +420,7 @@
 
                                 <div class="d-block dropdown-item dropdown-item-cart text-wrap px-3 py-2">
                                     <div class="d-flex align-items-center">
-                                        <img src="static/assets/images/products/img-6.png"
+                                        <img src="{% static 'assets/images/products/img-6.png' %}"
                                             class="me-3 rounded-circle avatar-sm p-2 bg-light" alt="user-pic">
                                         <div class="flex-1">
                                             <h6 class="mt-0 mb-1 fs-14">
@@ -442,7 +444,7 @@
 
                                 <div class="d-block dropdown-item dropdown-item-cart text-wrap px-3 py-2">
                                     <div class="d-flex align-items-center">
-                                        <img src="static/assets/images/products/img-5.png"
+                                        <img src="{% static 'assets/images/products/img-5.png' %}"
                                             class="me-3 rounded-circle avatar-sm p-2 bg-light" alt="user-pic">
                                         <div class="flex-1">
                                             <h6 class="mt-0 mb-1 fs-14">
@@ -580,7 +582,7 @@
                                     <div
                                         class="text-reset notification-item d-block dropdown-item position-relative active">
                                         <div class="d-flex">
-                                            <img src="static/assets/images/users/avatar-2.jpg"
+                                            <img src="{% static 'assets/images/users/avatar-2.jpg' %}"
                                                 class="me-3 rounded-circle avatar-xs" alt="user-pic">
                                             <div class="flex-1">
                                                 <a href="#!" class="stretched-link">
@@ -636,7 +638,7 @@
 
                                     <div class="text-reset notification-item d-block dropdown-item position-relative">
                                         <div class="d-flex">
-                                            <img src="static/assets/images/users/avatar-8.jpg"
+                                            <img src="{% static 'assets/images/users/avatar-8.jpg' %}"
                                                 class="me-3 rounded-circle avatar-xs" alt="user-pic">
                                             <div class="flex-1">
                                                 <a href="#!" class="stretched-link">
@@ -673,7 +675,7 @@
                                 <div data-simplebar style="max-height: 300px;" class="pe-2">
                                     <div class="text-reset notification-item d-block dropdown-item">
                                         <div class="d-flex">
-                                            <img src="static/assets/images/users/avatar-3.jpg"
+                                            <img src="{% static 'assets/images/users/avatar-3.jpg' %}"
                                                 class="me-3 rounded-circle avatar-xs" alt="user-pic">
                                             <div class="flex-1">
                                                 <a href="#!" class="stretched-link">
@@ -699,7 +701,7 @@
 
                                     <div class="text-reset notification-item d-block dropdown-item">
                                         <div class="d-flex">
-                                            <img src="static/assets/images/users/avatar-2.jpg"
+                                            <img src="{% static 'assets/images/users/avatar-2.jpg' %}"
                                                 class="me-3 rounded-circle avatar-xs" alt="user-pic">
                                             <div class="flex-1">
                                                 <a href="#!" class="stretched-link">
@@ -726,7 +728,7 @@
 
                                     <div class="text-reset notification-item d-block dropdown-item">
                                         <div class="d-flex">
-                                            <img src="static/assets/images/users/avatar-6.jpg"
+                                            <img src="{% static 'assets/images/users/avatar-6.jpg' %}"
                                                 class="me-3 rounded-circle avatar-xs" alt="user-pic">
                                             <div class="flex-1">
                                                 <a href="#!" class="stretched-link">
@@ -753,7 +755,7 @@
 
                                     <div class="text-reset notification-item d-block dropdown-item">
                                         <div class="d-flex">
-                                            <img src="static/assets/images/users/avatar-8.jpg"
+                                            <img src="{% static 'assets/images/users/avatar-8.jpg' %}"
                                                 class="me-3 rounded-circle avatar-xs" alt="user-pic">
                                             <div class="flex-1">
                                                 <a href="#!" class="stretched-link">
@@ -785,7 +787,7 @@
                             </div>
                             <div class="tab-pane fade p-4" id="alerts-tab" role="tabpanel" aria-labelledby="alerts-tab">
                                 <div class="w-25 w-sm-50 pt-3 mx-auto">
-                                    <img src="static/assets/images/svg/bell.svg" class="img-fluid" alt="user-pic">
+                                    <img src="{% static 'assets/images/svg/bell.svg' %}" class="img-fluid" alt="user-pic">
                                 </div>
                                 <div class="text-center pb-5 mt-2">
                                     <h6 class="fs-18 fw-semibold lh-base">Hey! You have no any notifications </h6>
@@ -799,7 +801,7 @@
                     <button type="button" class="btn" id="page-header-user-dropdown" data-bs-toggle="dropdown"
                         aria-haspopup="true" aria-expanded="false">
                         <span class="d-flex align-items-center">
-                            <img class="rounded-circle header-profile-user" src="static/assets/images/users/avatar-1.jpg"
+                            <img class="rounded-circle header-profile-user" src="{% static 'assets/images/users/avatar-1.jpg' %}"
                                 alt="Header Avatar">
                             <span class="text-start ms-xl-2">
                                 <span class="d-none d-xl-inline-block ms-1 fw-medium user-name-text">Anna Adame</span>
@@ -849,19 +851,19 @@
                 <!-- Dark Logo-->
                 <a href="index.html" class="logo logo-dark">
                     <span class="logo-sm">
-                        <img src="static/assets/images/logo-sm.png" alt="" height="22">
+                        <img src="{% static 'assets/images/logo-sm.png' %}" alt="" height="22">
                     </span>
                     <span class="logo-lg">
-                        <img src="static/assets/images/logo-dark.png" alt="" height="17">
+                        <img src="{% static 'assets/images/logo-dark.png' %}" alt="" height="17">
                     </span>
                 </a>
                 <!-- Light Logo-->
                 <a href="index.html" class="logo logo-light">
                     <span class="logo-sm">
-                        <img src="static/assets/images/logo-sm.png" alt="" height="22">
+                        <img src="{% static 'assets/images/logo-sm.png' %}" alt="" height="22">
                     </span>
                     <span class="logo-lg">
-                        <img src="static/assets/images/logo-light.png" alt="" height="17">
+                        <img src="{% static 'assets/images/logo-light.png' %}" alt="" height="17">
                     </span>
                 </a>
                 <button type="button" class="btn btn-sm p-0 fs-20 header-item float-end btn-vertical-sm-hover"
@@ -933,6 +935,19 @@
                                     </li>
                                     <li class="nav-item">
                                         <a href="{% url 'demo' %}" class="nav-link" data-key="t-ecommerce"> Demo-Page-1 </a>
+
+                                </ul>
+                            </div>
+                            <a class="nav-link menu-link" href="#netflix-customer" data-bs-toggle="collapse" role="button"
+                                aria-expanded="false" aria-controls="netflix-customer">
+                                <i class="ri-dashboard-2-line"></i> <span data-key="t-dashboards">Customer</span>
+                            </a>
+                            <div class="collapse menu-dropdown" id="netflix-customer">
+                                <ul class="nav nav-sm flex-column">
+                                    <li class="nav-item">
+                                        <a href="{% url 'addcustomer' %}" class="nav-link" data-key="t-analytics"> Add Customer
+                                        </a>
+                                    </li>
 
                                 </ul>
                             </div>
@@ -1629,40 +1644,41 @@
     </div>
 
     <!-- JAVASCRIPT -->
-    <script src="static/assets/libs/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <script src="static/assets/libs/simplebar/simplebar.min.js"></script>
-    <script src="static/assets/libs/node-waves/waves.min.js"></script>
-    <script src="static/assets/libs/feather-icons/feather.min.js"></script>
-    <script src="static/assets/js/pages/plugins/lord-icon-2.1.0.js"></script>
-    <script src="static/assets/js/plugins.js"></script>
+    <script src="{% static 'assets/libs/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+    <script src="{% static 'assets/libs/simplebar/simplebar.min.js' %}"></script>
+    <script src="{% static 'assets/libs/node-waves/waves.min.js' %}"></script>
+    <script src="{% static 'assets/libs/feather-icons/feather.min.js' %}"></script>
+    <script src="{% static 'assets/js/pages/plugins/lord-icon-2.1.0.js' %}"></script>
+    <script src="{% static 'assets/js/plugins.js' %}"></script>
 
     <!-- apexcharts -->
-    <script src="static/assets/libs/apexcharts/apexcharts.min.js"></script>
+    <script src="{% static 'assets/libs/apexcharts/apexcharts.min.js' %}"></script>
 
     <!-- Vector map-->
-    <script src="static/assets/libs/jsvectormap/js/jsvectormap.min.js"></script>
-    <script src="static/assets/libs/jsvectormap/maps/world-merc.js"></script>
+    <script src="{% static 'assets/libs/jsvectormap/js/jsvectormap.min.js' %}"></script>
+    <script src="{% static 'assets/libs/jsvectormap/maps/world-merc.js' %}"></script>
 
     <!--Swiper slider js-->
-    <script src="static/assets/libs/swiper/swiper-bundle.min.js"></script>
+    <script src="{% static 'assets/libs/swiper/swiper-bundle.min.js' %}"></script>
 
     <!-- Dashboard init -->
-    <script src="static/assets/js/pages/dashboard-ecommerce.init.js"></script>
+    <script src="{% static 'assets/js/pages/dashboard-ecommerce.init.js' %}"></script>
 
     <!-- App js -->
-    <script src="static/assets/js/app.js"></script>
-    <script src="static/assets/libs/multi.js/multi.min.js"></script>
-    <script src="static/assets/libs/@tarekraafat/autocomplete.js/autoComplete.min.js"></script>
-    <script src="static/assets/js/pages/form-advanced.init.js"></script>
-    <script src="static/assets/js/pages/form-input-spin.init.js"></script>
+    <script src="{% static 'assets/js/app.js' %}"></script>
+    <script src="{% static 'assets/libs/multi.js/multi.min.js' %}"></script>
+    <script src="{% static 'assets/libs/@tarekraafat/autocomplete.js/autoComplete.min.js' %}"></script>
+    <script src="{% static 'assets/js/pages/form-advanced.init.js' %}"></script>
+    <script src="{% static 'assets/js/pages/form-input-spin.init.js' %}"></script>
 
     <!-- Sweet Alerts js -->
-    <script src="static/assets/libs/sweetalert2/sweetalert2.min.js"></script>
+    <script src="{% static 'assets/libs/sweetalert2/sweetalert2.min.js' %}"></script>
 
     <!-- Sweet alert init js-->
-    <script src="static/assets/js/pages/sweetalerts.init.js"></script>
+    <script src="{% static 'assets/js/pages/sweetalerts.init.js' %}"></script>
     <!-- prismjs plugin -->
-    <script src="static/assets/libs/prismjs/prism.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <script src="{% static 'assets/libs/prismjs/prism.js' %}"></script>
 </body>
 
 </html>

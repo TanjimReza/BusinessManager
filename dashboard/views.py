@@ -72,13 +72,12 @@ def newprofile(request):
         context = {'form': form}
         return render(request, 'dashboard/new-profile.html', context = context)
     
-
 def renewprofile(request):
     form = ProfileUpdateForm()
     if request.method == "POST":
         print("POST REQUEST 3")
         print(request.POST)
-        return redirect('renewprofile2', id=request.POST.get('profile'))
+        return redirect('updateprofile', id=request.POST.get('profile'))
     
     context = {'get_profile': True,
                     'form': form,
@@ -87,41 +86,50 @@ def renewprofile(request):
         
 
 
-def renewprofile2(request, id):
-    form = ProfileUpdateForm(instance=Profile.objects.get(pk=id))
+def updateprofile(request, id):
+    print("\n\n UPDATE")
+    form2 = ProfileForm(instance=Profile.objects.get(pk=id))
+    if request.method == "GET":
+        form2 = ProfileForm(instance=Profile.objects.get(pk=id))
     
+    
+    if request.method == "POST":
+        form2 = ProfileForm(request.POST, instance=Profile.objects.get(pk=id))
+        if form2.is_valid():
+            form2.save()
+            print(form2.data)
+            print("SAVED FROM")
+            return redirect('updateprofile', id=id)
+        
+        else: 
+            print("\n\n INAVLID FORM")
+            print(form2.errors)
     context = {
-                    'form': form,
-            }
-    return render(request, 'dashboard/renew-profile.html', context = context)
+                'form2': form2,
+              }
     
-    
-    
-    # if request.POST.get('profile') is None:
-    #     print("POST REQUEST 4")
-    #     print(request.POST)
-    #     print(request.POST.get('profile'))
-    #     form2 = ProfileForm(request.POST or None, instance=Profile.objects.get(id=request.POST.get('profile')))
-
-    #     if form2.is_valid():
-    #         print("Form 2 data VALID")
-    #         form2.save()
-    #         return HttpResponse("UPDATED")
-    #     else: 
-    #         print("Form 2 data INVALID")
-    #         print(form2.errors.as_data)
-    #         context = {'get_profile': True,
-    #             'form': form,
-    #             }
-
-    #         return render(request, 'dashboard/renew-profile.html', context = context)
-
-
-      
+    return render(request, 'dashboard/update_profile.html', context = context)
 
 
 def removeaccount(request):
     return render(request, 'dashboard/remove-account.html')
+
+def addcustomer(request):
+    
+    form = CustomerForm()
+    
+    if request.method == "POST":
+        form = CustomerForm(request.POST)
+        if form.is_valid():
+            print("Form Data Valid!")
+            form.save()
+            return redirect('/')
+                        
+
+    
+    context = {'form': form}
+    return render(request, 'dashboard/add-customer.html', context=context)
+
 
 def manageprofiles(request):
     return render(request, 'dashboard/manage-profiles.html')

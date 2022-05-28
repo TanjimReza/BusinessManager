@@ -1,0 +1,61 @@
+{% extends 'dashboard/sidebar_template.html' %}
+{% load static %}
+
+{% block maincontent %}
+{% if errors %}
+<!-- Warning Alert -->
+<div class="alert alert-danger alert-dismissible alert-label-icon label-arrow fade show" role="alert">
+    <i class="ri-alert-line label-icon"></i><strong>Failed to add Info</strong>
+    {% for title,msg in errors.items %}
+    
+    <div class="alert alert-danger alert-dismissible alert-outline fade show" role="alert">
+        <strong> {{title}}</strong> - {{msg.0}}
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+    {% endfor %}
+    
+    <button type="button" class="btn-close" data-bs-dismiss=" alert" aria-label="Close"></button>
+</div>
+{% endif %}
+
+
+
+
+<form action="" method="POST">
+    {% csrf_token %}
+    <div class="row"> <!-- ROW START  -->
+        <div class="col-lg-12">
+            <div class="card">
+                <div class="card-header align-items-center d-flex">
+                <h4 class="card-title mb-0 flex-grow-1">Customer Information</h4>
+        </div> 
+            <div class="card-body"> <!-- CARD BODY START -->
+                    
+                    <div class="row gy-4"> <!-- SUB ROW START  -->
+                            <div class="col-xxl-3 col-md-6">
+                                <div>
+                                        <label for="customer_name" class="form-label">Customer Name</label>
+                                        <div class="form-icon">
+                                                <input type="customer_name" class="form-control form-control-icon" id="customer_name" name="customer_name" placeholder="Omuk Tomuk">
+                                                <i class="ri-mail-unread-line"></i>
+                                        </div>
+                                </div>
+                            </div>
+
+                        <div class="col-xxl-3 col-md-6">
+                            <div>
+                                <label for="customer_phone" class="form-label">Phone Number</label>
+                                <input type="text" class="form-control" id="customer_phone" name="customer_phone" value="">
+                            </div>
+                        </div>
+                        </div>
+                    </div><!-- SUB ROW END  -->
+
+                    
+                    
+                </div> <!-- CARD BODY END -->
+                <button type="submit" class="btn btn-primary" id="sa-successs">Submit</button>  
+            </div> <!-- ROW END  -->
+</form>  
+<script type="text/javascript">document.getElementById("sa-success").addEventListener("click",function(){Swal.fire({title:"Good job!",text:"You clicked the button!",icon:"success",showCancelButton:!0,confirmButtonClass:"btn btn-primary w-xs me-2 mt-2",cancelButtonClass:"btn btn-danger w-xs mt-2",buttonsStyling:!1,showCloseButton:!0})})</script>
+{% endblock maincontent %}

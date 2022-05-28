@@ -21,7 +21,8 @@ urlpatterns = [
     #! Netflix-Sell URLs
     path('newprofile',views.newprofile, name='newprofile'),
     path('renewprofile',views.renewprofile, name='renewprofile'),
-    path('renewprofile/<str:id>/',views.renewprofile2, name='renewprofile2'),
+    path('updateprofile/<str:id>/',views.updateprofile, name='updateprofile'),
+    path('addcustomer',views.addcustomer, name='addcustomer'),
     #! Finance URLs
     path('addcost',views.addcost, name='addcost'),
     path('addprofit',views.addprofit, name='addprofit'),

@@ -8,8 +8,8 @@ class Profile(models.Model):
     name = models.CharField(name="profile_name", max_length=100)
     password = models.CharField(name="profile_password", max_length=100)
     credit = models.IntegerField(name="profile_credit", default=0)
-    created_at = models.DateField(name="profile_created", auto_now_add=True)
-    ends_at = models.DateField(name="profile_ends", auto_now_add=True)
+    created_at = models.DateField(name="profile_created", auto_now_add=False)
+    ends_at = models.DateField(name="profile_ends", auto_now_add=False)
     bought_for = models.CharField(name="profile_bought_for",max_length=10)
     owner = models.ForeignKey("Customer", on_delete=models.SET_NULL, null=True)
     profile_type = models.CharField(name="profile_type", max_length=100, default="NonVPN")
@@ -39,7 +39,7 @@ class Customer(models.Model):
     cid = models.AutoField(primary_key=True)
     name = models.CharField(name="customer_name", max_length=100)
     customer_profiles = models.ManyToOneRel(field="profile",field_name="profiles", to="Profile", on_delete=models.DO_NOTHING)
-    
+    phone = models.CharField(name="customer_phone", max_length=12, default="")
     def __str__(self) -> str:
         return str(self.customer_name)
     
